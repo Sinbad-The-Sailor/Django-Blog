@@ -1,0 +1,8 @@
+# Virtual Environment.
+/venv
+
+# Python Cache.
+__pycache__
+
+# Django Settings File. For security reasons.
+/django_website/django_website/settings.py
