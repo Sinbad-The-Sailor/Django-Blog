@@ -11,6 +11,10 @@ def home(request):
     }
     return render(request, 'blog/home.html', context)
 
+def contact(request):
+    return render(request, 'blog/contact.html')
+
+
 # TODO: Change with new templates!
 class PostListView(ListView):
     model = Post
