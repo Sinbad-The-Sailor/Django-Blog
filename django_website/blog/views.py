@@ -28,7 +28,8 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
+    template_name = 'blog/post_form.html'
     fields = ['title', 'content'] 
-
+    
 def about(request):
     return render(request, 'blog/about.html')
