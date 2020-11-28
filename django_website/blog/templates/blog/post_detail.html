@@ -6,7 +6,6 @@
 on {{ object.date_posted|date:"F j Y" }}</span> 
 {% endblock %}
 
-
 {% block content %}
   <!-- Post Content -->
   <article>
@@ -14,7 +13,6 @@ on {{ object.date_posted|date:"F j Y" }}</span>
       <div class="row">
         <div class="col-lg-10 col-md-10 mx-auto">
            {{ object.content }}
-
 
           <p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
 
@@ -52,6 +50,9 @@ on {{ object.date_posted|date:"F j Y" }}</span>
           <p>Placeholder text by
             <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+
+            <a class="btn btn-outline-secondary" href="{% url 'post-update' object.pk %}">Edit Post</a>
+            <a class="btn btn-outline-danger" href="{% url 'post-delete' object.pk %}">Delete Post</a>
         </div>
       </div>
     </div>
