@@ -46,29 +46,46 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'blog-contact' %}">Contact</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post-create' %}">Create Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'category-create' %}">Create Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
         </ul>
       </div>
     </div>
   </nav>
 
-   <!-- Page Header -->
-   <header class="masthead" style="background-image: url('static/blog/img/abstract_background.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8 mx-auto">
-          <div class="site-heading">
-            <h1>{% block title %}{% endblock %}</h1>
-            <span class="subheading">{% block subtitle %}{% endblock %}</span>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('static/blog/img/abstract_background.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 mx-auto">
+            <div class="site-heading">
+              <h1>{% block title %}{% endblock %}</h1>
+              <span class="subheading">{% block subtitle %}{% endblock %}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-
-
+    </header>
+  
+ 
   {% block content %}{% endblock %}
-
 
     <!-- Footer -->
   <footer>

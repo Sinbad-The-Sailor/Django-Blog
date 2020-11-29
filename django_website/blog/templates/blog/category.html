@@ -3,10 +3,11 @@
 <!-- Title Content -->
 {% block title %} Django Blog {% endblock %}
 <!-- Subtitle Content -->
-{% block subtitle %} A Blog Using Django and Bootstrap {% endblock %}
+{% block subtitle %} Posts about {{ cat }} {% endblock %}
 <!-- Main Content -->
+
 {% block content %}
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-lg-10 col-md-10 mx-auto">
         {% for post in posts %}
@@ -17,11 +18,11 @@
               </h2>
             </a>
               <h5 class="post-subtitle">
-                {{ post.preview|slice:":200"|safe }}
+                {{ post.content|slice:":200"|safe }}
               </h5>
             <p class="post-meta">By
               <a href="{% url 'blog-contact' %}">{{ post.author }}</a>
-              on {{ post.date_posted|date:"F j Y" }} in <a href="{% url 'category-home' post.category|slugify %}">{{ post.category }}</a></p>
+              on {{ post.date_posted|date:"F j Y" }} in {{ post.category }}</p>
           </div>
           <hr>          
         {% endfor %}

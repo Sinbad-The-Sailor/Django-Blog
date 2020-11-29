@@ -2,12 +2,17 @@
 
 {% block title %} Create A New Post {%endblock title%}
 {% block content %}
-<br/><br/>
-<form method="POST">
-    <div class="form-group">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button>post!</button>
-    </div>
-</form>
+{% if user.is_authenticated %}
+    <br/><br/>
+    <form method="POST">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">post!</button>
+        </div>
+    </form>
+{% else %}
+    <h3>Unauthorized</h3>
+{% endif %}
 {% endblock content %}

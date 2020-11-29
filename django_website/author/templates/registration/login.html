@@ -1,0 +1,13 @@
+{% extends 'blog/base.html'  %}
+
+{% block title %} Login {%endblock title%}
+{% block content %}
+<br/><br/>
+<form method="POST">
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Login!</button>
+    </div>
+</form>
+{% endblock content %}
